@@ -78,7 +78,12 @@ def validate(brief: dict, manifest: dict, output_root: Path) -> tuple[list[str],
     if not isinstance(files, list):
         return ["manifest.files: expected a list"], warnings
 
-    languages = get_path(brief, "languages.required") or []
+    languages = list(get_path(brief, "languages.required") or [])
+    override = get_path(brief, "languages.explicit_single_language_override") is True
+    if override and not get_path(brief, "languages.override_reason"):
+        errors.append("languages.override_reason: missing explicit user instruction")
+    if not override:
+        languages = list(dict.fromkeys([*languages, "zh-CN", "en"]))
     allowed_formats = {str(item).lower().lstrip(".") for item in (get_path(brief, "deliverables.formats") or [])}
     required_count = get_path(brief, "deliverables.quantity_per_language") or 1
     ratio_text = get_path(brief, "deliverables.canvas.ratio")
@@ -122,7 +127,8 @@ def validate(brief: dict, manifest: dict, output_root: Path) -> tuple[list[str],
         if language not in languages:
             errors.append(f"{label}.language: unexpected '{language}'")
         else:
-            counts[language] += 1
+            if target.is_file() and extension in {"png", "jpg", "jpeg"}:
+                counts[language] += 1
         width, height = item.get("width_px"), item.get("height_px")
         if target.is_file() and extension in {"png", "jpg", "jpeg"}:
             image_info = read_image_info(target)
@@ -151,7 +157,7 @@ def validate(brief: dict, manifest: dict, output_root: Path) -> tuple[list[str],
 
     for language in languages:
         if counts[language] < required_count:
-            errors.append(f"language '{language}': expected at least {required_count} file(s), found {counts[language]}")
+            errors.append(f"language '{language}': expected at least {required_count} complete PNG/JPEG poster(s), found {counts[language]}")
     return errors, warnings
 
 

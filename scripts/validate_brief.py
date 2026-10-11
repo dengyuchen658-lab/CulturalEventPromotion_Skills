@@ -14,7 +14,7 @@ ALLOWED_STATUSES = {"confirmed", "pending", "missing", "conflict"}
 ALLOWED_CONFIDENCE = {"high", "medium", "low", "unknown"}
 ALLOWED_TYPES = {
     "exhibition", "performance", "festival", "lecture", "workshop",
-    "reading", "screening", "hybrid", "other",
+    "reading", "screening", "hybrid", "sports", "other",
 }
 REQUIRED_FACTS = (
     "event.name",
@@ -92,6 +92,12 @@ def validate(data: Any) -> tuple[list[str], list[str]]:
     if not isinstance(required_languages, list) or not required_languages:
         errors.append("languages.required: expected a non-empty list")
 
+    override = get_path(data, "languages.explicit_single_language_override") is True
+    if override and not get_path(data, "languages.override_reason"):
+        errors.append("languages.override_reason: explicit single-language override requires the user's instruction")
+    if not override and (not isinstance(required_languages, list) or not {"zh-CN", "en"}.issubset(required_languages)):
+        errors.append("languages.required: every category requires both zh-CN and en posters")
+
     ratio = get_path(data, "deliverables.canvas.ratio")
     if not isinstance(ratio, str) or ":" not in ratio:
         errors.append("deliverables.canvas.ratio: expected a ratio such as '4:5'")
@@ -131,4 +137,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

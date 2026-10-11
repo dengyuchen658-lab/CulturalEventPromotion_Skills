@@ -12,3 +12,11 @@ files:
     editable: false
     notes: "Replace this example entry with an actual exported file."
 
+  - path: "replace-with-english-output-file.png"
+    language: en
+    format: png
+    width_px: 2400
+    height_px: 3000
+    status: review
+    editable: false
+    notes: "English complete poster paired with the Chinese output."

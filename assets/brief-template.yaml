@@ -73,7 +73,7 @@ registration:
   qr_asset: ""
 languages:
   source: zh-CN
-  required: [zh-CN]
+  required: [zh-CN, en]
   official_names: {}
   translation_status: pending
 deliverables:

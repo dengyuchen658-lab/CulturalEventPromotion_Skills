@@ -14,17 +14,15 @@ UNFINISHED_PATTERN = re.compile(r"\[(?:TODO|TBD)\]|\b(?:TODO|TBD)\b", re.IGNOREC
 NAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
-def check_skill_frontmatter(
-    skill: Path, expected_name: str | None, errors: list[str]
-) -> str:
+def check_skill_frontmatter(skill: Path, expected_name: str, errors: list[str]) -> None:
     if not skill.is_file():
         errors.append(f"missing {skill.name}")
-        return ""
+        return
     text = skill.read_text(encoding="utf-8-sig")
     match = re.match(r"^---\n(.*?)\n---", text, re.DOTALL)
     if not match:
         errors.append(f"{skill.name}: missing or malformed YAML frontmatter")
-        return ""
+        return
     fields: dict[str, str] = {}
     for line in match.group(1).splitlines():
         if not line.strip() or line.lstrip().startswith("#"):
@@ -39,15 +37,10 @@ def check_skill_frontmatter(
         errors.append(f"{skill.name} frontmatter: unexpected keys {sorted(unexpected)}")
     name = fields.get("name", "")
     description = fields.get("description", "")
-    if (
-        (expected_name is not None and name != expected_name)
-        or not NAME_PATTERN.fullmatch(name)
-        or len(name) > 64
-    ):
+    if name != expected_name or not NAME_PATTERN.fullmatch(name) or len(name) > 64:
         errors.append(f"{skill.name} frontmatter: invalid name")
     if not description or len(description) > 1024 or "<" in description or ">" in description:
         errors.append(f"{skill.name} frontmatter: invalid description")
-    return name
 
 
 def main() -> int:
@@ -56,12 +49,8 @@ def main() -> int:
     args = parser.parse_args()
     root = args.root.resolve()
     errors: list[str] = []
-    # A GitHub repository may expose the skill directly at its root while the
-    # repository name differs from the installed skill directory name. Validate
-    # the canonical frontmatter name and require both language entrypoints to
-    # agree, rather than deriving the name from the checkout directory.
-    skill_name = check_skill_frontmatter(root / "SKILL.md", None, errors)
-    check_skill_frontmatter(root / "SKILL.en.md", skill_name or None, errors)
+    check_skill_frontmatter(root / "SKILL.md", root.name, errors)
+    check_skill_frontmatter(root / "SKILL.en.md", root.name, errors)
 
     for path in sorted(item for item in root.rglob("*") if item.is_file()):
         if path.stat().st_size == 0:
@@ -95,3 +84,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
