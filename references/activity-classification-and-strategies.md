@@ -40,3 +40,24 @@
 ## 两类活动模板识别
 
 主内容是艺术街区开放、社区文化、邻里共创或公共街区生活时读取 [艺术街区策略](activity-types/art-district.md)，不把所有节庆都归入街区。以学习、制作与实践为主的工作坊，地点即使在艺术街区，也走工作坊模板。两类活动所有中英文版本均须执行 [强制模板路由](category-template-routing.md)。复合活动按主活动选择一套机制，不机械混搭。
+
+
+## 新增成员类别识别
+
+展览按观看对象分流：传统文化、文物和考古读取 [传统文化类别入口](activity-types/traditional-cultural-exhibition.md)；数字艺术、绘画和摄影读取 [艺术展览类别入口](activity-types/digital-art-exhibition.md)。节庆、春节、国庆、中秋及灯会读取 [节庆类别入口](activity-types/festival-lantern.md)。这些类别必须执行成员中英模板及各入口的用户覆盖规则，加入既有 [强制模板路由](category-template-routing.md)，不再自由选择替代成员的版式；文化对象、主题色和活动事实仍按真实母本确定。
+
+
+## 品牌、红色主题与非遗成员模块
+
+文化品牌/IP快闪读取 [品牌快闪入口](activity-types/brand-pop-up.md)，保持 `festival` 主类型。党史／红色文化展览读取 [红色主题入口](activity-types/red-theme-exhibition.md)，保持 `exhibition`。非遗文创／出版／生活方式快闪读取 [非遗入口](activity-types/heritage-market.md)，按真实主行为映射既有主类型并执行新版纸墨三栏语言模板；学习制作为主时保留 `workshop` 及固定工作坊设计。成员模块标签不是新主类型枚举，非遗快闪优先保留文化证据，红色展览优先专属历史叙事。三类必须加载成员模块并接入原 Gate 和双版交付，不以泛化节庆或传统展览模板代替。
+
+
+## 潮流演出、传统表演与动漫游戏成员模块
+
+音乐节、Livehouse、演唱会与巡演以观看演出为主，读取 [潮流演出入口](activity-types/music-festival.md)，保持 `performance`，不因“音乐节”字样套一般节庆。交响／管弦乐、戏曲、相声与民族／融合音乐读取 [传统表演入口](activity-types/symphony-concert.md)，保持 `performance`，按真实表演身份细分。动漫展、游戏展、IP体验与Artist Alley读取 [动漫游戏入口](activity-types/anime-game-expo.md)，以观看、试玩或交流为主为 `exhibition`；竞赛／电竞竞技为主走体育赛事。
+
+三类必须加载成员中英包、子类策略、字体调度、案例转化与专项QA，接入现有事实母本和 Gate，并交付两版完整海报。没有直接参考图的小类保持试用／缺证据状态，不能以邻近案例或技术检查冒充验证。成员标签与字体方案ID不是新增的总分类枚举。
+
+## 校庆新成员模板
+
+校庆／院庆读取 [校庆入口](activity-types/university-anniversary.md)，主类型 `festival`。两版均使用本次固定编辑式成员方案，英文按其单行校名／周年和语言提示执行，中文按自身分行／布局规则；不再使用旧自由字体或照片自然色建议。其他活动只是在校园举行时不套校庆设计。所有类别的语言提示严格执行与 QA 见 [规则](language-prompt-execution.md)。

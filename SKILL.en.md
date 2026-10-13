@@ -37,9 +37,13 @@ Turn cultural-event materials into accurate, legible, engaging, and traceable po
 
 Every cultural-event poster task must generate and deliver complete Chinese (`zh-CN`) and English (`en`) posters together, regardless of event category or source language. A generic request for a poster does not authorize single-language delivery. Additional languages are extra versions. Both versions share one content master and undergo separate typesetting and factual QA. Missing either version means the task is incomplete; translated copy, prompts or editable sources cannot substitute for the second poster. A later explicit user request for single-language delivery may override this requirement and must be recorded.
 
-## Mandatory Category Templates
+## Category Modules and Language-Specific Prompt Execution
 
-Every Chinese or English arts-district, workshop, or sports-event poster must follow [Category Template Routing](references/category-template-routing.md) and load the corresponding member template. The user has selected these template directions; other categories retain the existing strategy workflow.
+Academic forums must follow the [fixed typography route](references/activity-types/academic-forum.md): portrait 4:5, one family per information level, sans-serif for all non-H1 text, and the user's locked reference layout. Chinese H1 uses its topic-selected font: Slidexiaxing for humanities, mixed humanities/digital methods or uncertainty, and VonwaonBitmap for computing-only topics. English H1 MUST load the actual Playball-Regular.ttf for every subject and must NOT inherit Chinese font selection. The two languages intentionally use different title fonts. The former mixed-title-font/free-layout direction is superseded.
+
+Categories with integrated member packages must follow [Category Template Routing](references/category-template-routing.md) and load their Chinese and English entries separately. Fixed templates use the selected direction; conditional modules retain their existing direction gates.
+
+**Every category must follow its corresponding language prompt and explicit parameters strictly.** Use the Chinese package for Chinese and the English package for English. Their resulting designs may differ as instructed; do not override either language to make the pair look identical. Do not arbitrarily alter fonts, color roles, composition, line-break constraints, emblem size or required mechanisms. Only explicit user overrides or adaptations expressly allowed by the selected template may change them. Lock each actual prompt and layout constraint before production, follow [Language Prompt Execution](references/language-prompt-execution.md), and check the result against every requirement. Repair explicit violations before claiming conformance or completion.
 
 ## Core Workflow
 
@@ -49,12 +53,12 @@ Every Chinese or English arts-district, workshop, or sports-event poster must fo
 4. Run `scripts/validate_brief.py`. Pause for human confirmation when critical facts are missing, conflicting, or unreliable.
 5. Assign a primary event type, optional secondary type, attributes, confidence, and evidence. Do not force a low-confidence choice.
 6. Build a six-dimension visual positioning statement covering core content, audience, communication goal, mood, cultural context, and medium.
-7. For arts-district, workshop, and sports-event posters, lock the mandatory category/language template first; strategy choices support content within that template. Select one main visual strategy and no more than two supporting strategies through the 14-type route and visual-team mapping. Treat case evidence as scoped support, not a universal style rule.
-8. Plan evidence, a design proposition, visual motif, asset plan, prompts, and negative constraints. By default, three materially different directions may be proposed unless the user requests another number. Confirm direction before expensive generation for other categories. For arts-district, workshop, and sports-event posters, plan event-specific content within the selected template without asking for another style choice.
+7. For categories with integrated member packages, follow the category/language route first. Within a fixed template, choose only permitted content expression; conditional modules keep their direction gates. Select one main visual strategy and no more than two supporting strategies through the 14-type route and visual-team mapping. Treat case evidence as scoped support, not a universal style rule.
+8. Plan evidence, a design proposition, visual motif, asset plan, prompts, and negative constraints. By default, three materially different directions may be proposed unless the user requests another number. Confirm new directions before expensive generation where needed. Within an already selected fixed template, plan event-specific content without asking for another style choice. Execute each language's locked generation and layout prompts separately.
 9. Produce a text-free key visual first, then add verified copy, logos, and QR codes with a controllable layout tool.
 10. Generate both Chinese and English complete posters from the same content master, plus any additional requested languages. Reflow each version rather than mirroring line breaks mechanically.
 11. Run hard checks first, then evidence-based design review using positioning 25%, information 25%, finish 20%, concept 20%, and context 10%. Mark audience effects unverified unless actual audience data exists; roll back only to the affected stage.
-12. Run `scripts/validate_delivery.py` and deliver final files, the content master, delivery manifest, quality report, and necessary process records.
+12. Run `scripts/validate_delivery.py` and deliver complete posters within the user/category output scope. Keep the content master, delivery manifest, quality report and process records in the workspace. For a PNG-only category, deliver only the two complete poster PNGs, without source files or sidecars.
 
 ## Human–AI Collaboration
 

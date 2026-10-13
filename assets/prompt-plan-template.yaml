@@ -37,3 +37,26 @@ human_approval:
   cultural_elements: pending
   asset_rights: pending
 
+language_execution:
+  zh-CN:
+    template_id: ""
+    template_entry: ""
+    instruction_files: []
+    prompt_source_files: []
+    locked_copy_file: ""
+    image_prompt: ""
+    layout_constraints: []
+    resolved_assets: []
+    allowed_adjustments: []
+    explicit_user_overrides: []
+  en:
+    template_id: ""
+    template_entry: ""
+    instruction_files: []
+    prompt_source_files: []
+    locked_copy_file: ""
+    image_prompt: ""
+    layout_constraints: []
+    resolved_assets: []
+    allowed_adjustments: []
+    explicit_user_overrides: []

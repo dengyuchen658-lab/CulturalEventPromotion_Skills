@@ -97,6 +97,34 @@ def main() -> int:
     module_spec = importlib.util.spec_from_file_location("delivery", ROOT / "scripts" / "validate_delivery.py")
     delivery = importlib.util.module_from_spec(module_spec)
     module_spec.loader.exec_module(delivery)
+    # Fixed academic template: humanities win over digital methods, uncertainty
+    # defaults to calligraphy, while computing-only subjects use bitmap titles.
+    academic_spec = importlib.util.spec_from_file_location(
+        "academic_assets", ROOT / "assets/category-templates/academic-forum/scripts/check_assets.py")
+    academic = importlib.util.module_from_spec(academic_spec)
+    academic_spec.loader.exec_module(academic)
+    assert academic.choose_title("数字人文与文化遗产保护")['font_key'] == 'humanities'
+    assert academic.choose_title("计算机系统与数字算法")['font_key'] == 'digital'
+    assert academic.choose_title("跨领域学术交流")['font_key'] == 'humanities'
+    assert academic.check("文化遗产与数字技术")['valid']
+    assert academic.SPEC['canvas']['width'] * 5 == academic.SPEC['canvas']['height'] * 4
+    background_spec = importlib.util.spec_from_file_location(
+        "academic_background", ROOT / "assets/category-templates/academic-forum/scripts/background.py")
+    background = importlib.util.module_from_spec(background_spec)
+    background_spec.loader.exec_module(background)
+    palette = academic.SPEC['default_palette']
+    assert background.contrast(background.rgb(palette['ink']), background.rgb(palette['background_top'])) >= 4.5
+    assert background.contrast(background.rgb(palette['ink']), background.rgb(palette['background_bottom'])) >= 4.5
+    assert academic.SPEC['background_policy']['reference_locks'] == 'typography_only'
+    title_spec = importlib.util.spec_from_file_location(
+        "academic_title", ROOT / "assets/category-templates/academic-forum/scripts/title.py")
+    title = importlib.util.module_from_spec(title_spec)
+    title_spec.loader.exec_module(title)
+    assert title.display_title({'title_lines':['2026年全球论坛'],'dates':'2026.11.06'})[0] == ['全球论坛']
+    assert title.display_title({'title_lines':['2026 Global Forum'],'year_label':'FORUM 2026'})[0] == ['Global Forum']
+    assert title.display_title({'title_lines':['2026论坛'],'dates':'11月6日'})[0] == ['2026论坛']
+    assert title.display_title({'title_lines':['第五届论坛','12位嘉宾'],'dates':'2026.11.06'})[0] == ['第五届论坛','12位嘉宾']
+    assert title.display_title({'title_lines':['第2026届论坛'],'year_label':'2026'})[0] == ['第2026届论坛']
     with tempfile.TemporaryDirectory() as temp_dir:
         temp = Path(temp_dir)
         write_png_header(temp / "zh.png", 2400, 3000)
