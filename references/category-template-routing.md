@@ -1,12 +1,10 @@
-# 十三类文化活动：强制成员模板与类别模块路由
-
-## 后续新增：学术论坛固定文字模板
-
-学术会议／国际论坛必须执行[学术论坛入口](activity-types/academic-forum.md)，分别读取[中文](../assets/category-templates/academic-forum/zh-CN/SKILL.md)与[英文](../assets/category-templates/academic-forum/en/SKILL.md)。最新参考为左上主题大字、其下完整论坛名、左下连续信息及右下地点／大型日期；旧旋转栏、右上标题和双栏废止。中文H1人文优先单一字族，英文H1强制Playball-Regular，不能沿用中文标题字体；其他文字全部HarmonyOS Sans SC黑体，强制4:5。其他类别保持各自规则。
+# 十四类文化活动：强制成员模板与类别模块路由
 
 ## 适用与优先级
 
-用户明确要求艺术街区、工作坊、体育赛事、传统文化展览、节庆和数字艺术／绘画／摄影展览的所有海报使用成员设计模板。本文件接入二十六个中英文成员包：艺术街区、工作坊、体育赛事、传统文化展览、节庆、艺术展览、校庆、非遗市集和品牌快闪九类为固定设计模板，红色主题、潮流演出、传统表演和动漫游戏为必须执行的条件策略模块；没有固定样稿的模块不自行编造固定版式。总入口原先列举三类是历史范围，按本文件及类别入口执行后来新增的类别；总流程保持不变。现有资料解析、统一内容母本、活动分类、双语事实映射、质量检查、交付流程继续适用。字体、配色角色、排版、构图机制和模板专项 QA 由所选模板约束，优先于通用自由选风格建议。用户后续明确更改某项时，仅覆盖该项。其余四类同样必须加载成员规则，使用其已有候选与方向确认逻辑。
+本总 Skill 统一管理十四个同层级的文化活动类别，每类都有独立的 `references/activity-types/` 文件及中文、英文模板入口，按本文件统一路由，共二十八个语言入口。艺术街区、工作坊、体育赛事、传统文化展览、节庆、艺术展览、学术论坛、校庆、非遗市集和品牌快闪十类执行固定设计模板；红色主题、潮流演出、传统表演和动漫游戏四类执行条件策略模块。固定模板与条件策略是各类别的制作规则，不改变类别层级。
+
+现有资料解析、统一内容母本、活动分类、双语事实映射、质量检查和交付流程适用于全部十四类。字体、配色角色、排版、构图机制及专项 QA 由对应类别文件和语言模板约束，优先于通用自由选风格建议；条件策略按其已有候选与方向确认逻辑执行。用户后续明确更改某项时，仅覆盖该项。
 
 - 艺术街区：主内容为艺术街区开放、艺术季、社区文化、邻里共创、城市漫步或街区生活，且具有公共参与与地方生活依据；仅作为活动地点的街区不触发。读取艺术街区策略，不能把所有 `festival` 都套入本模板。
 - 工作坊：主行为是学习、制作、研究、讨论或共创，使用抽象工作坊模板。地点在艺术街区仍按工作坊处理；连续制作步骤不能冒充多个独立活动。
@@ -20,41 +18,43 @@
 - 音乐节／潮流演出：Livehouse、音乐节、演唱会／巡演按 [类别入口](activity-types/music-festival.md) 的小类处理，主类型为 `performance`；音乐节不能仅凭名称路由一般节庆。
 - 交响乐／传统表演：交响、戏曲、相声及民族／融合音乐按 [类别入口](activity-types/symphony-concert.md) 处理，主类型为 `performance`；舞剧邻近案例不作为戏曲直接证据。
 - 动漫／游戏：观看、试玩及IP体验按 [类别入口](activity-types/anime-game-expo.md) 的四小类处理，主类型为 `exhibition`；电竞竞技为主走体育赛事。
+- 学术论坛：学术会议、国际论坛、主旨演讲、分论坛和圆桌按 [类别入口](activity-types/academic-forum.md) 执行，主类型为 `lecture`；对应语言模板规定固定布局、标题字体与信息层级。
 - 校庆／院庆：按 [校庆入口](activity-types/university-anniversary.md) 执行新中英编辑式模板，保持 `festival`，仅学校作为场地不触发；英文校名与周年各单行，中文按自身规则断行。
 - 同时出现多类内容时，依主活动与观众主要行为选择一套完整机制，不混用街区纸张／剪影与工作坊抽象／反白。独立宣传某个工作坊的海报仍须走工作坊模板。
 - 每个语言版本单独路由；不得用英文模板机械替换中文字，也不得将中文模板的全部参数照搬英文。其他语言没有对应成员模板时先确认适配要求，不自行新建风格。
 
-## 必须读取的模板
+## 十四个同层级类别及中英文模板
 
-| 活动类别 | 语言 | 完整模板入口 | 核心机制 |
-|---|---|---|---|
-| 艺术街区 | 中文 `zh-CN`／`zh` | [中文白底模板](../assets/category-templates/art-district/zh-CN/SKILL.md) | 白底灰字绿剪影、双细轮廓、遮罩网格、纸张叠层；澹雅明体标题、Harmony 信息 |
-| 艺术街区 | 英文 `en` | [英文白底模板](../assets/category-templates/art-district/en/SKILL.md) | 同类剪影机制；Trajan 标题、Futura Std 信息、Harmony 数字；英文专用纸张与分组排版 |
-| 工作坊 | 中文 `zh-CN`／`zh` | [中文抽象模板](../assets/category-templates/workshop/zh-CN/SKILL.md) | 顶部双栏、右侧日期详情、右下参与组；Harmony 字体；主题抽象图形与局部反白 |
-| 工作坊 | 英文 `en` | [英文抽象模板](../assets/category-templates/workshop/en/SKILL.md) | 相同布局关系；完整英文词组换行、保留费用币种与参与条件；Harmony 字体 |
-| 体育赛事 | 中文 `zh-CN`／`zh` | [中文赛事模板](../assets/category-templates/sports/zh-CN/SKILL.md) | 中央聚焦／底部长标题、江城律动黑标题、Harmony 信息；赛事标志物平面解构与全幅活力渐变 |
-| 体育赛事 | 英文 `en` | [英文赛事模板](../assets/category-templates/sports/en/SKILL.md) | 同一主模式和主图几何；完整英文词组、同色系拼片、网点纸纹及固定白字角色 |
-| 传统文化／文物／考古展览 | 中文 `zh-CN` | [中文传统文化模板](../assets/category-templates/traditional-cultural-exhibition/zh-CN/SKILL.md) | 图像主导、左标题右展讯、细线分组；Ma Shan Zheng／Noto Serif SC／Bodoni Moda／Inter |
-| 传统文化／文物／考古展览 | 英文 `en` | [英文传统文化模板](../assets/category-templates/traditional-cultural-exhibition/en/SKILL.md) | 同类布局，左上分行标题；Bodoni Moda／Inter |
-| 节庆 | 中文 `zh-CN` | [中文节庆模板](../assets/category-templates/festival-lantern/zh-CN/SKILL.md) | 平面主题负形、选择性虚化、大衬线标题、底部双栏；Bodoni Moda／Noto Serif SC／Inter |
-| 节庆 | 英文 `en` | [英文节庆模板](../assets/category-templates/festival-lantern/en/SKILL.md) | 同一主题与布局机制，独立英文层级；Bodoni Moda／Inter |
-| 数字艺术／绘画／摄影展览 | 中文 `zh-CN` | [中文艺术展模板](../assets/category-templates/digital-art-exhibition/zh-CN/SKILL.md) | 错位强标题、信息托底、有限强调色、虚线端点；Noto Sans SC／Inter |
-| 数字艺术／绘画／摄影展览 | 英文 `en` | [英文艺术展模板](../assets/category-templates/digital-art-exhibition/en/SKILL.md) | 同类错位和信息分组，独立英文重排；Inter |
-| 品牌快闪 | 中文 `zh-CN` | [中文品牌模块](../assets/category-templates/brand-pop-up/zh-CN/SKILL.md) | 角色中心固定模板V2、1080×1440／3:4、五区、ChillRoundF／思源黑体、主色一致及类别QA |
-| 品牌快闪 | 英文 `en` | [英文品牌模块](../assets/category-templates/brand-pop-up/en/SKILL.md) | 同固定五区与3:4规格、Nunito字标与正文、英文完整词组和非官方概念标注 |
-| 红色主题 | 中文 `zh-CN` | [中文红色主题模块](../assets/category-templates/red-theme-exhibition/zh-CN/SKILL.md) | 内容叙事、历史证据、防默认模板、策展结构；九份可用字体 |
-| 红色主题 | 英文 `en` | [英文红色主题模块](../assets/category-templates/red-theme-exhibition/en/SKILL.md) | 同历史证据与叙事，独立英语层级；九份字体及真实路径绑定 |
-| 非遗文创／书籍 | 中文 `zh-CN` | [中文非遗模块](../assets/category-templates/heritage-market/zh-CN/SKILL.md) | FontQu Smile标题、Noto八字重、320／80／52三级居中标题、三栏左／中／右对齐及42px详情、内容配图和纸墨纹理 |
-| 非遗文创／书籍 | 英文 `en` | [英文非遗模块](../assets/category-templates/heritage-market/en/SKILL.md) | FontQu Smile标题、Noto八字重、三栏左／中／右对齐、42px详情、完整词组与纸墨纹理 |
-| 音乐节／潮流演出 | 中文 `zh-CN` | [中文潮流演出模块](../assets/category-templates/music-festival/zh-CN/SKILL.md) | 三小类、场景／阵容／肖像路线、实际字体调度与五项确认 |
-| 音乐节／潮流演出 | 英文 `en` | [英文潮流演出模块](../assets/category-templates/music-festival/en/SKILL.md) | 同阵容事实与主题，独立英文意群、字体和层级 |
-| 交响乐／传统表演 | 中文 `zh-CN` | [中文传统表演模块](../assets/category-templates/symphony-concert/zh-CN/SKILL.md) | 戏曲／相声／交响与融合音乐条件路线、作品与身份依据 |
-| 交响乐／传统表演 | 英文 `en` | [英文传统表演模块](../assets/category-templates/symphony-concert/en/SKILL.md) | 同节目与身份，准确译名、真实衬线／斜体及独立行组 |
-| 动漫／游戏 | 中文 `zh-CN` | [中文动漫游戏模块](../assets/category-templates/anime-game-expo/zh-CN/SKILL.md) | 四小类、角色与展区／创作者行动、真实IP及授权 |
-| 动漫／游戏 | 英文 `en` | [英文动漫游戏模块](../assets/category-templates/anime-game-expo/en/SKILL.md) | 同IP和体验事实，独立英文策略，不迁移泰文案例纪年 |
-
-| 校庆／院庆 | 中文 `zh-CN` | [中文校庆模板](../assets/category-templates/university-anniversary/zh-CN/SKILL.md) | 同字号校名周年、真实校徽固定可见尺寸、NotoSerifSC八字重、浅单色校园照片与两条横线 |
-| 校庆／院庆 | 英文 `en` | [英文校庆模板](../assets/category-templates/university-anniversary/en/SKILL.md) | 校名周年各单行、共同字号适配和64px校徽间距；执行英文照片提示与独立行组 |
+| 活动类别 | 类别文件 | 语言 | 完整模板入口 | 核心机制 |
+|---|---|---|---|---|
+| 艺术街区 | [类别规则](activity-types/art-district.md) | 中文 `zh-CN`／`zh` | [中文白底模板](../assets/category-templates/art-district/zh-CN/SKILL.md) | 白底灰字绿剪影、双细轮廓、遮罩网格、纸张叠层；澹雅明体标题、Harmony 信息 |
+| 艺术街区 | [类别规则](activity-types/art-district.md) | 英文 `en` | [英文白底模板](../assets/category-templates/art-district/en/SKILL.md) | 同类剪影机制；Trajan 标题、Futura Std 信息、Harmony 数字；英文专用纸张与分组排版 |
+| 工作坊 | [类别规则](activity-types/workshop.md) | 中文 `zh-CN`／`zh` | [中文抽象模板](../assets/category-templates/workshop/zh-CN/SKILL.md) | 顶部双栏、右侧日期详情、右下参与组；Harmony 字体；主题抽象图形与局部反白 |
+| 工作坊 | [类别规则](activity-types/workshop.md) | 英文 `en` | [英文抽象模板](../assets/category-templates/workshop/en/SKILL.md) | 相同布局关系；完整英文词组换行、保留费用币种与参与条件；Harmony 字体 |
+| 体育赛事 | [类别规则](activity-types/sports-event.md) | 中文 `zh-CN`／`zh` | [中文赛事模板](../assets/category-templates/sports/zh-CN/SKILL.md) | 中央聚焦／底部长标题、江城律动黑标题、Harmony 信息；赛事标志物平面解构与全幅活力渐变 |
+| 体育赛事 | [类别规则](activity-types/sports-event.md) | 英文 `en` | [英文赛事模板](../assets/category-templates/sports/en/SKILL.md) | 同一主模式和主图几何；完整英文词组、同色系拼片、网点纸纹及固定白字角色 |
+| 传统文化／文物／考古展览 | [类别规则](activity-types/traditional-cultural-exhibition.md) | 中文 `zh-CN` | [中文传统文化模板](../assets/category-templates/traditional-cultural-exhibition/zh-CN/SKILL.md) | 图像主导、左标题右展讯、细线分组；Ma Shan Zheng／Noto Serif SC／Bodoni Moda／Inter |
+| 传统文化／文物／考古展览 | [类别规则](activity-types/traditional-cultural-exhibition.md) | 英文 `en` | [英文传统文化模板](../assets/category-templates/traditional-cultural-exhibition/en/SKILL.md) | 同类布局，左上分行标题；Bodoni Moda／Inter |
+| 节庆 | [类别规则](activity-types/festival-lantern.md) | 中文 `zh-CN` | [中文节庆模板](../assets/category-templates/festival-lantern/zh-CN/SKILL.md) | 平面主题负形、选择性虚化、大衬线标题、底部双栏；Bodoni Moda／Noto Serif SC／Inter |
+| 节庆 | [类别规则](activity-types/festival-lantern.md) | 英文 `en` | [英文节庆模板](../assets/category-templates/festival-lantern/en/SKILL.md) | 同一主题与布局机制，独立英文层级；Bodoni Moda／Inter |
+| 数字艺术／绘画／摄影展览 | [类别规则](activity-types/digital-art-exhibition.md) | 中文 `zh-CN` | [中文艺术展模板](../assets/category-templates/digital-art-exhibition/zh-CN/SKILL.md) | 错位强标题、信息托底、有限强调色、虚线端点；Noto Sans SC／Inter |
+| 数字艺术／绘画／摄影展览 | [类别规则](activity-types/digital-art-exhibition.md) | 英文 `en` | [英文艺术展模板](../assets/category-templates/digital-art-exhibition/en/SKILL.md) | 同类错位和信息分组，独立英文重排；Inter |
+| 品牌快闪 | [类别规则](activity-types/brand-pop-up.md) | 中文 `zh-CN` | [中文品牌模块](../assets/category-templates/brand-pop-up/zh-CN/SKILL.md) | 角色中心固定模板V2、1080×1440／3:4、五区、ChillRoundF／思源黑体、主色一致及类别QA |
+| 品牌快闪 | [类别规则](activity-types/brand-pop-up.md) | 英文 `en` | [英文品牌模块](../assets/category-templates/brand-pop-up/en/SKILL.md) | 同固定五区与3:4规格、Nunito字标与正文、英文完整词组和非官方概念标注 |
+| 红色主题 | [类别规则](activity-types/red-theme-exhibition.md) | 中文 `zh-CN` | [中文红色主题模块](../assets/category-templates/red-theme-exhibition/zh-CN/SKILL.md) | 内容叙事、历史证据、防默认模板、策展结构；九份可用字体 |
+| 红色主题 | [类别规则](activity-types/red-theme-exhibition.md) | 英文 `en` | [英文红色主题模块](../assets/category-templates/red-theme-exhibition/en/SKILL.md) | 同历史证据与叙事，独立英语层级；九份字体及真实路径绑定 |
+| 非遗文创／书籍 | [类别规则](activity-types/heritage-market.md) | 中文 `zh-CN` | [中文非遗模块](../assets/category-templates/heritage-market/zh-CN/SKILL.md) | FontQu Smile标题、Noto八字重、320／80／52三级居中标题、三栏左／中／右对齐及42px详情、内容配图和纸墨纹理 |
+| 非遗文创／书籍 | [类别规则](activity-types/heritage-market.md) | 英文 `en` | [英文非遗模块](../assets/category-templates/heritage-market/en/SKILL.md) | FontQu Smile标题、Noto八字重、三栏左／中／右对齐、42px详情、完整词组与纸墨纹理 |
+| 音乐节／潮流演出 | [类别规则](activity-types/music-festival.md) | 中文 `zh-CN` | [中文潮流演出模块](../assets/category-templates/music-festival/zh-CN/SKILL.md) | 三小类、场景／阵容／肖像路线、实际字体调度与五项确认 |
+| 音乐节／潮流演出 | [类别规则](activity-types/music-festival.md) | 英文 `en` | [英文潮流演出模块](../assets/category-templates/music-festival/en/SKILL.md) | 同阵容事实与主题，独立英文意群、字体和层级 |
+| 交响乐／传统表演 | [类别规则](activity-types/symphony-concert.md) | 中文 `zh-CN` | [中文传统表演模块](../assets/category-templates/symphony-concert/zh-CN/SKILL.md) | 戏曲／相声／交响与融合音乐条件路线、作品与身份依据 |
+| 交响乐／传统表演 | [类别规则](activity-types/symphony-concert.md) | 英文 `en` | [英文传统表演模块](../assets/category-templates/symphony-concert/en/SKILL.md) | 同节目与身份，准确译名、真实衬线／斜体及独立行组 |
+| 动漫／游戏 | [类别规则](activity-types/anime-game-expo.md) | 中文 `zh-CN` | [中文动漫游戏模块](../assets/category-templates/anime-game-expo/zh-CN/SKILL.md) | 四小类、角色与展区／创作者行动、真实IP及授权 |
+| 动漫／游戏 | [类别规则](activity-types/anime-game-expo.md) | 英文 `en` | [英文动漫游戏模块](../assets/category-templates/anime-game-expo/en/SKILL.md) | 同IP和体验事实，独立英文策略，不迁移泰文案例纪年 |
+| 学术论坛 | [类别规则](activity-types/academic-forum.md) | 中文 `zh-CN` | [中文学术论坛模板](../assets/category-templates/academic-forum/zh-CN/SKILL.md) | 左上主题大标题、完整论坛名、左下信息及右下地点／日期；H1主题选定单一字族，其他文字HarmonyOS Sans SC；4:5 |
+| 学术论坛 | [类别规则](activity-types/academic-forum.md) | 英文 `en` | [英文学术论坛模板](../assets/category-templates/academic-forum/en/SKILL.md) | 同类别固定布局；H1真实Playball-Regular，其他文字HarmonyOS Sans SC；独立英文排版与4:5 |
+| 校庆／院庆 | [类别规则](activity-types/university-anniversary.md) | 中文 `zh-CN` | [中文校庆模板](../assets/category-templates/university-anniversary/zh-CN/SKILL.md) | 同字号校名周年、真实校徽固定可见尺寸、NotoSerifSC八字重、浅单色校园照片与两条横线 |
+| 校庆／院庆 | [类别规则](activity-types/university-anniversary.md) | 英文 `en` | [英文校庆模板](../assets/category-templates/university-anniversary/en/SKILL.md) | 校名周年各单行、共同字号适配和64px校徽间距；执行英文照片提示与独立行组 |
 
 进入类别后必须读所选模板入口及它要求的机制和参数文件，查看所指参考图。模板目录保持成员原结构，脚本从自身目录解析字体、参数和资产，不从主 Skill 根目录猜测路径。调用时使用模板内脚本的完整路径；工作坊与体育赛事制作前运行对应 `scripts/check_assets.py`。
 
@@ -70,17 +70,17 @@
 
 1. 统一 `brief.yaml` 仍是事实母本。按选中模板映射其所需的 `brief.json`、锁定文案、`layout-text.json` 和语言映射；它们是派生文件，冲突时回到统一母本修正。
 2. 在现有项目工作区保存 `routing.json`，记录类别、语言、证据、`template_id`（如 `art-district/en`）、模板路径、适配记录和用户明确覆盖项。模板里的默认输出路径不另建平行项目，全部交付继续归入现有项目工作区与清单。
-3. 九类固定版式活动（含校庆、非遗市集与品牌快闪）已选定模板方向，不再要求从三种自由版式中选风格。概念规划用于本题内容锚点、动作／道具或主题抽象图形；文化、专名、事实、授权问题仍按原流程确认。
+3. 十类固定版式活动已选定模板方向，不再要求从三种自由版式中选风格。概念规划用于本题内容锚点、动作／道具或主题抽象图形；文化、专名、事实、授权问题仍按原流程确认。
 4. 按成员包执行可控排版、资产生成与合成。`skia-canvas`、`sharp` 是运行依赖，不随模板提供；查找实际运行时或用可测量的等效工具，不硬编码他人环境路径。依赖不可用时明确未执行，不宣称完成成图验证。
 5. 合并通用 QA 和所选模板全部专项 QA，核对真实字体、配色、实际字形边界、溢出、移动预览与图形机制。工作坊重点核对实际交叠字形局部反白及白字对比度至少 4.5:1；街区逐场景核对宽渐消、两条轮廓和网格遮罩。
 
 ## 资源来源
 
-二十六个成员包来自用户小组，原文件在备份与来源清单保留；共享字体去重只改变接入路径，不改变其二进制，成员样张脚本已按实际路径接入；类别入口中的用户覆盖规则优先于成员默认的可选案例说明；参考图片和示例文案只用于识别机制。字体清单和来源状态见 [字体索引](../assets/fonts/font-catalog.md)。包内附带文件不等于已核验所有字体的使用或对外分发授权。
+十四类的二十八个语言入口统一纳入本总包；成员资料来自用户小组，原文件在备份与来源清单保留；共享字体去重只改变接入路径，不改变其二进制，成员样张脚本已按实际路径接入；类别入口中的用户覆盖规则优先于成员默认的可选案例说明；参考图片和示例文案只用于识别机制。字体清单和来源状态见 [字体索引](../assets/fonts/font-catalog.md)。包内附带文件不等于已核验所有字体的使用或对外分发授权。
 
 ## 双版任务范围
 
-本路由十三类活动和其他文化类别一样，每次必须同时调用中文与英文模板并交付两版完整海报。上表语言行是同一任务的两个子流程，不是二选一；既有图形资产可复用，两版各按自身字体和排版执行。
+本路由十四类活动，每次必须同时调用中文与英文模板并交付两版完整海报。上表语言行是同一任务的两个子流程，不是二选一；既有图形资产可复用，两版各按自身字体和排版执行。
 
 ## 体育赛事专项接入
 
@@ -113,7 +113,7 @@
 
 ## 潮流演出、传统表演与动漫游戏接入
 
-这三类按各类别入口强制执行成员中英文策略、案例学习、字体和QA。五项生成前确认接入既有 Gate，已确认事项复用；不把六类固定模板的“已选唯一方向”扩展到成员的条件策略。默认2400×3000／4:5及所有类别中英双版完整成品保持，成员案例的横版或其他比例不覆盖母本。
+这三类按各类别入口强制执行成员中英文策略、案例学习、字体和QA。五项生成前确认接入既有 Gate，已确认事项复用；不把固定模板类别的“已选唯一方向”扩展到成员的条件策略。默认2400×3000／4:5及所有类别中英双版完整成品保持，成员案例的横版或其他比例不覆盖母本。
 
 每包 `scripts/font_engine.py` 读取其 `assets/fonts/catalog.json` 与 `role-profiles.json`；字体和许可证共享路径已接入，不需要系统安装。候选序列核验实际字段全部字形，失败不得静默用系统字体。角色索引中的旧字族标识用 catalog 解析，不直接拼原路径。新包的 Ma Shan Zheng 是独立成员版本；红色模块两项字体现已由用户另行补交原版，状态以红色模块manifest为准。
 
